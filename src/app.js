@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Icon from "./icon";
-import Subtitle from './subtitle'
-
+import Subtitle from "./subtitle";
+import bg from "../assets/images/bg.jpg";
 
 function Center(props) {
 	return (
@@ -47,6 +47,18 @@ export default function App(props) {
 				.container {
 					width: 100%;
 					height: 100%;
+					background-color: black;
+					background-image: ${step >= 27 ? `url('${bg}')` : "none"};
+					animation: bg-move 20s infinite linear;
+				}
+
+				@keyframes bg-move {
+					0% {
+						background-position-y: 0px;
+					}
+					100% {
+						background-position-y: 500px;
+					}
 				}
 			`}</style>
 			<style jsx global>{`
@@ -66,7 +78,6 @@ export default function App(props) {
 					height: 100%;
 					margin: 0;
 					padding: 0;
-					background-color: black;
 				}
 			`}</style>
 		</div>

@@ -6,14 +6,8 @@ import cpp2 from "../assets/images/cpp2.png";
 export default function Icon(props) {
 	return (
 		<div className="container">
+			{/* icon kado */}
 			{3 <= props.step && props.step <= 10 && <img src={kado} />}
-			{11 <= props.step && props.step <= 12 && (
-				<>
-					<img src={cpp} />
-					<p>feelings.cpp</p>
-				</>
-			)}
-			{13 <= props.step && props.step <= 20 && <img src={cpp2} />}
 			{props.step === 10 && props.pause && (
 				<button
 					onClick={() => {
@@ -24,6 +18,17 @@ export default function Icon(props) {
 					Buka
 				</button>
 			)}
+
+			{/* ikon file */}
+			{11 <= props.step && props.step <= 12 && (
+				<>
+					<img src={cpp} />
+					<p>feelings.cpp</p>
+				</>
+			)}
+
+			{/* icon vscode */}
+			{13 <= props.step && props.step <= 20 && <img src={cpp2} />}
 			{props.step === 20 && props.pause && (
 				<button
 					onClick={() => {
@@ -33,6 +38,21 @@ export default function Icon(props) {
 				>
 					Compile and Run
 				</button>
+			)}
+
+			{/* compiling */}
+			{/* You should turn your fav music on,
+				feel the pain,
+				and think that sadness
+				can't longer to stay */}
+			{22 <= props.step && <div>You should turn your fav music on,</div>}
+			{23 <= props.step && <div>feel the pain,</div>}
+			{24 <= props.step && <div>and think that sadness</div>}
+			{25 <= props.step && <div>can't longer to stay</div>}
+			{26 <= props.step && (
+				<div>
+					<b>stay positive :)</b>
+				</div>
 			)}
 			<style jsx>{`
 				img {
@@ -51,6 +71,9 @@ export default function Icon(props) {
 				}
 				p {
 					text-align: center;
+				}
+				div {
+					color: ${props.step >= 27 ? "black" : "white"};
 				}
 			`}</style>
 		</div>

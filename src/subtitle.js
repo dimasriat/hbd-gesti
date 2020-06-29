@@ -14,8 +14,8 @@ export default function Subtitle(props) {
 		"coba dibuka Ges kadonya",
 		"", // 10
 		"",
+		"yhaaaa",
 		"",
-		"wkwkwk",
 		"jadi ini itu kodinganmu",
 		"yang kamu kirim ke aku Ges",
 		"",
@@ -23,6 +23,14 @@ export default function Subtitle(props) {
 		"beneran",
 		"kalo nggak percaya coba aja",
 		"", // 20
+		"now playing - rehat (kunto aji)",
+		"now playing - rehat (kunto aji)",
+		"",
+		"",
+		"",
+		"", //stay positive
+		"",
+		"",
 	];
 
 	return (
