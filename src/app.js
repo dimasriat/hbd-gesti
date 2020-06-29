@@ -1,37 +1,71 @@
 import React, { useState, useEffect } from "react";
-import Algoritma from "./components/algoritma";
-import bg from "../assets/images/bg.jpg";
+import Icon from "./icon";
+import Subtitle from './subtitle'
+
+
+function Center(props) {
+	return (
+		<div className="container">
+			<Icon {...props} />
+			<style jsx>{`
+				.container {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					height: 100%;
+					color: white;
+				}
+			`}</style>
+		</div>
+	);
+}
 
 export default function App(props) {
 	const [step, setStep] = useState(0);
+	const [pause, setPause] = useState(false);
 	useEffect(() => {
-		setTimeout(() => {
-			setStep(1);
-		}, 3000);
-	}, []);
-
-	const app = [<h1>HBD ges</h1>, <Algoritma setStep={setStep} step={step} />, <Algoritma setStep={setStep} step={step} />];
-
+		if (!pause) {
+			setTimeout(() => {
+				if (step == 10) return setPause((s) => true);
+				setStep((s) => s + 1);
+			}, 2000);
+		}
+	}, [step, pause]);
 	return (
 		<div className="container">
-			{app[step]}
+			<Center
+				step={step}
+				setStep={setStep}
+				pause={pause}
+				setPause={setPause}
+			/>
+			<Subtitle step={step} />
 			<style jsx>{`
 				.container {
-					background-color: rgb(30, 30, 30);
-					background-image: ${step > 1 ? `url('${bg}')` : "none"};
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					animation: bg-move 20s infinite linear;
+					width: 100%;
+					height: 100%;
 				}
-
-				@keyframes bg-move {
-					0% {
-						background-position-y: 0px;
-					}
-					100% {
-						background-position-y: 500px;
-					}
+			`}</style>
+			<style jsx global>{`
+				* {
+					font-family: sans-serif;
+					box-sizing: border-box;
+				}
+				html {
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					padding: 0;
+				}
+				body,
+				#root {
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					padding: 0;
+					background-color: black;
 				}
 			`}</style>
 		</div>
