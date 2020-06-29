@@ -14,7 +14,7 @@ export default function Icon(props) {
 				</>
 			)}
 			{13 <= props.step && props.step <= 20 && <img src={cpp2} />}
-			{props.step === 10 && (
+			{props.step === 10 && props.pause && (
 				<button
 					onClick={() => {
 						props.setPause(false);
@@ -24,7 +24,7 @@ export default function Icon(props) {
 					Buka
 				</button>
 			)}
-			{props.step === 20 && (
+			{props.step === 20 && props.pause && (
 				<button
 					onClick={() => {
 						props.setPause(false);
@@ -35,6 +35,10 @@ export default function Icon(props) {
 				</button>
 			)}
 			<style jsx>{`
+				img {
+					max-width: 100%;
+					height: auto;
+				}
 				.emoji {
 					font-size: 10rem;
 				}

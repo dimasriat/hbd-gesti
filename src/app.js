@@ -29,10 +29,11 @@ export default function App(props) {
 		if (!pause) {
 			setTimeout(() => {
 				if (step == 10) return setPause((s) => true);
+				if (step == 20) return setPause((s) => true);
 				setStep((s) => s + 1);
-			}, 2000);
+			}, 3000);
 		}
-	}, [step, pause]);
+	}, [step]);
 	return (
 		<div className="container">
 			<Center
