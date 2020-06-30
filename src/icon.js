@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import kado from "../assets/images/kado.jpg";
 import cpp from "../assets/images/cpp.png";
 import cpp2 from "../assets/images/cpp2.png";
+import mp3 from "../assets/audio/rehat.mp3";
 
 export default function Icon(props) {
+	const [play, setPlay] = useState(false);
+	const rehat = new Audio(mp3);
+	useEffect(() => {
+		if (props.step === 21 && !play) {
+			setPlay(true);
+			rehat.play()
+		}
+	}, [props.step]);
 	return (
 		<div className="container">
 			{/* icon kado */}
@@ -39,12 +48,6 @@ export default function Icon(props) {
 					Compile and Run
 				</button>
 			)}
-
-			{/* compiling */}
-			{/* You should turn your fav music on,
-				feel the pain,
-				and think that sadness
-				can't longer to stay */}
 			{22 <= props.step && <div>You should turn your fav music on,</div>}
 			{23 <= props.step && <div>feel the pain,</div>}
 			{24 <= props.step && <div>and think that sadness</div>}
